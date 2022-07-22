@@ -8,12 +8,12 @@ Steps:
 
 [x] Create React repository
 
-[ ] Criar o componente de Listagem
+[x] Create list component
 
-[ ] Criar o componente de Menu
+[x] Create Menu component
 
-[ ] Criar a camada de conexão com a API
+[x] Create API connection layer
 
-[ ] Conectar com a API
+[x] Connect to API
 
-[ ] Listar os Departamentos na UI
+[x] List the Departments in the UI
