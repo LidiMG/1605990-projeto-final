@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import getDepartamentos from '../../services/departamentos';
 
 const ListaDepartamentos = () => {
@@ -16,7 +17,11 @@ const ListaDepartamentos = () => {
 
     return (
         <>
-            <h3 className="mt-3">Departamentos</h3>
+            <div className="d-flex justify-content-between align-items-center mt-3">
+                <h3>Departamentos</h3>
+                <Link to='/departamentos/new' className="btn bi-plus btn-secondary"> Novo</Link>
+            </div>
+
 
             <table className='table table-striped'>
                 <thead>
