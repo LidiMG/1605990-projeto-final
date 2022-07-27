@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import getDepartamentos from '../../services/departamentos';
+import { getDepartamentos } from '../../services/departamentos';
 
 const ListaDepartamentos = () => {
 
@@ -19,8 +19,14 @@ const ListaDepartamentos = () => {
         <>
             <div className="d-flex justify-content-between align-items-center mt-3">
                 <h3>Departamentos</h3>
+                {!departamentos && 
+                <div className="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                }
                 <Link to='/departamentos/new' className="btn bi-plus btn-secondary"> Novo</Link>
             </div>
+
 
 
             <table className='table table-striped'>

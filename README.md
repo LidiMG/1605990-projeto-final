@@ -17,3 +17,9 @@ Steps:
 [x] Connect to API
 
 [x] List the Departments in the UI
+
+Plus:
+
+[+] Department form
+
+[+] Department insertion and loading
