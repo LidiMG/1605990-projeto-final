@@ -23,3 +23,5 @@ Plus:
 [+] Department form
 
 [+] Department insertion and loading
+
+[+] Department deleted

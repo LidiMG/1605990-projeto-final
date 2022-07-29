@@ -27,7 +27,7 @@ const CadastroDepartamentos = () => {
                                 setNome(e.target.value)
                             }}
                         />
-                        <label for="nome">Nome</label>
+                        <label htmlFor="nome">Nome</label>
                     </div>
                 </div>
                 <div className="col-sm-6 col-md-2 col-12">
@@ -42,7 +42,7 @@ const CadastroDepartamentos = () => {
                                 setSigla(e.target.value)
                             }}
                         />
-                        <label for="sigla">Sigla</label>
+                        <label htmlFor="sigla">Sigla</label>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ const CadastroDepartamentos = () => {
 
                             navigate('/departamentos');
                         }}>
-                        <i class="bi bi-save" /> Salvar</button>
+                        <i className="bi bi-save" /> Salvar</button>
                 </div>
             </div>
             <div className={`alert alert-danger mt-3 ${showErro}`}>
