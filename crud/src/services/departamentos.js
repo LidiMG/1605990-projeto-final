@@ -24,3 +24,18 @@ export const deleteDepartamento = async (data) => {
   return resp.data;
 }
 
+export const getDepartamentoById = async (idDepartamento) => {
+    const resp = await api.get(`/departamentos/${idDepartamento}`)
+
+    return resp.data;
+}
+
+export const updateDepartamento = async (data) => {
+    const { idDepartamento, nome, sigla } = data;
+
+    const resp = await api.put(`/departamentos/${idDepartamento}`, {
+        nome,
+        sigla
+    })
+    return resp.data;
+}

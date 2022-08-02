@@ -25,3 +25,5 @@ Plus:
 [+] Department insertion and loading
 
 [+] Department deleted
+
+[+] Department edited

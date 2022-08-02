@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { insertDepartamento } from "../../services/departamentos";
+import { useNavigate, useParams } from "react-router-dom";
+import { insertDepartamento, getDepartamentoById, updateDepartamento } from "../../services/departamentos";
 
 const CadastroDepartamentos = () => {
+    const { idDepartamento } = useParams()
+    const [ departamento, setDepartamento ] = useState()
     const [nome, setNome] = useState('')
     const [sigla, setSigla] = useState('')
     const [showErro, setShowErro] = useState('d-none')
@@ -10,9 +12,28 @@ const CadastroDepartamentos = () => {
 
     const navigate = useNavigate()
 
+    const titulo = idDepartamento ? 'Atualização' : 'Cadastro'
+
+    async function getDepto(idDepartamento){
+        setDepartamento (await getDepartamentoById(idDepartamento));
+    }
+
+    useEffect(() => {
+        if (idDepartamento) {
+            getDepto(idDepartamento)
+        }
+    }, [])
+
+    useEffect(() => {
+        if(departamento) {
+            setNome(departamento[0].nome)
+            setSigla(departamento[0].sigla)
+        }
+    }, [departamento])
+
     return (
         <>
-            <h3 className="mt-3 mb-3">Cadastro de Departamento</h3>
+            <h3 className="mt-3 mb-3">{titulo} de Departamento</h3>
 
             <div className="row">
                 <div className="col-sm-6 col-md-10 col-12">
@@ -63,10 +84,19 @@ const CadastroDepartamentos = () => {
                                 setErro('Preencha a sigla!');
                                 return;
                             }
+
+                            if(departamento) {
+                                updateDepartamento({
+                                    idDepartamento,
+                                    nome,
+                                    sigla
+                                });
+                            } else {
                             insertDepartamento({
                                 nome,
                                 sigla
                             });
+                            }
 
                             navigate('/departamentos');
                         }}>
